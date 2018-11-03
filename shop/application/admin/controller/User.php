@@ -39,6 +39,10 @@ class User extends Controller
         }
     }
 
-   
+   public function user_info()
+   {
+        $data = Db::table('user')->select();
+        return view('index/user_info',['data'=>$data,'name'=>session::get('username')]);
+   }
 
 }

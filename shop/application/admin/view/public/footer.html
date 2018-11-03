@@ -1,5 +1,5 @@
 
-<!DOCTYPE html >
+<!DOCTYPE html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -58,44 +58,99 @@
 <script type="text/javascript" src="/admin/js/demo.js"></script>
 <script type="text/javascript" src="/admin/js/themer.js"></script>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("div#mws-login .mws-login-back").mouseover(function(event) {
-			$(this).find("a").animate({'left':0})
-		}).mouseout(function(event) {
-			$(this).find("a").animate({'left':70})
-		});
-	});
-</script>
+<script type="text/javascript" src="/admin/js/demo.dashboard.js"></script>
 
-<title>login</title>
+<title>后台管理</title>
 
 </head>
 
 <body>
 
-	<div id="mws-login">
-    	<h1>Login</h1>
-        <div class="mws-login-lock"><img src="css/icons/24/locked-2.png" alt="" /></div>
-    	<div id="mws-login-form">
-        	<form class="mws-form" action="/admin/login/login" method="post">
-                <div class="mws-form-row">
-                	<div class="mws-form-item large">
-                    	<input type="text" class="mws-login-username mws-textinput" placeholder="username" name="username" required />
+	<!-- Themer -->  
+	
+    <!-- Themer End -->
+    
+
+	<!-- Header Wrapper -->
+	<div id="mws-header" class="clearfix">
+    
+    	<!-- Logo Wrapper -->
+    	<div id="mws-logo-container">
+        	<div id="mws-logo-wrap">
+            	<h3 style="color:yellow">后台管理</h3>
+			</div>
+        </div>
+        
+        <!-- User Area Wrapper -->
+        <div id="mws-user-tools" class="clearfix">
+        
+        	<!-- User Notifications -->
+       
+            <!-- User Messages -->
+           
+            <!-- User Functions -->
+            <div id="mws-user-info" class="mws-inset">
+            	<div id="mws-user-photo">
+                	<img src="/admin/example/profile.jpg" alt="User Photo" />
+                </div>
+                <div id="mws-user-functions">
+                    <div id="mws-username">
+                        Hello, {$Think.session.username}
                     </div>
+                    <ul>
+                    	<li><a href="#">Profile</a></li>
+                        <li><a href="#">Change Password</a></li>
+                        <li><a href="/admin/login/logout">Logout</a></li>
+                    </ul>
                 </div>
-                <div class="mws-form-row">
-                	<div class="mws-form-item large">
-                    	<input type="password" class="mws-login-password mws-textinput" placeholder="password" name="password" required/>
-                    </div>
-                </div>
-                <div class="mws-form-row">
-                	<input type="submit" value="Login" class="mws-button green mws-login-button" />
-                </div>
-            </form>
+            </div>
+            <!-- End User Functions -->
+            
         </div>
     </div>
+    
+    <!-- Main Wrapper -->
+    <div id="mws-wrapper">
+    	<!-- Necessary markup, do not remove -->
+		<div id="mws-sidebar-stitch"></div>
+		<div id="mws-sidebar-bg"></div>
+        
+        <!-- Sidebar Wrapper -->
+        <div id="mws-sidebar">
+        	
+            <!-- Search Box 搜索-- >
+        	<div id="mws-searchbox" class="mws-inset">
+            	<form action="http://www.malijuwebshop.com/themes/mws-admin/dashboard.html">
+                	<input type="text" class="mws-search-input" />
+                    <input type="submit" class="mws-search-submit" />
+                </form>
+            </div>
+            
+            <!-- Main Navigation -->
+            <div id="mws-navigation">
+            	<ul>
+                	
+                	<li>
+                    	<a href="#" class="mws-i-24 i-list">用户管理</a>
+                        <ul>
+                        	<li><a href="/admin/user/user_info">查看用户</a></li>
+                        	<li><a href="#">添加用户信息</a></li>
+                        </ul>
+                    </li>
+                	
+                </ul>
+            </div>
+            <!-- End Navigation -->
+            
+        </div>
+        
+        
+        <!-- Container Wrapper -->
+        <!-- 中间的内容-->
+        <!-- End Container Wrapper -->
+        
 
 
-</body>
-</html>
+            
+
+   

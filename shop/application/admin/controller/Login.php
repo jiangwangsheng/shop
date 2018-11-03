@@ -7,6 +7,10 @@ use think\md5;
 use think\Session;
 class Login extends Controller
 {
+    public function _empty()
+    {
+        return $this->error('没有该方法');
+    }
 	public function index()
     {
     	return view('index/login');
@@ -21,7 +25,7 @@ class Login extends Controller
     		session::set('username',$login['username']);
     		session::set('id',$login['id']);
     		// dd(session::get('username'));
-    		return view('index/list',['name'=>session::get('username')]);
+    		return view('index/user_info',['name'=>session::get('username')]);
     	}else {
     		return $this->error('登录失败','index',3);
     	}
@@ -29,6 +33,6 @@ class Login extends Controller
     public function logout()
     {
     	session::set('username',null);
-    	return $this->error('退出成功，请重新登录','index');
+    	return $this->error('退出成功,请重新登录','index');
     }
 }
