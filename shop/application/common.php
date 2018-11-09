@@ -10,3 +10,17 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+function upload($img)
+{
+	 if($img){
+		 	    $info = $img->validate(['size'=>1567118,'ext'=>'jpg,png,jpeg,gif'])->move(ROOT_PATH . 'public' . DS . 'uploads');
+                    if($info){
+                    	  $a = $info->getFilename();
+                    	  //返回图片名+日期
+                    	  return(date('Ymd').'/'.$a);
+                    	 }else{
+                        // 上传失败获取错误信息
+                        echo $file->getError();
+                 }
+           }
+}

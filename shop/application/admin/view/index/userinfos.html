@@ -1,0 +1,75 @@
+{include file="public/footer"}
+<div id="mws-container" class="clearfix">
+        <div class="container">
+
+
+        	<div class="mws-panel grid_8">
+                	<div class="mws-panel-header">
+                    	<span class="mws-i-24 i-list">用户信息修改</span>
+                    </div>
+                    <div class="mws-panel-body">
+                    	<form class="mws-form" action="/admin/user/gong/id/{$data['id']}" method="post" enctype="multipart/form-data">
+                    		<div class="mws-form-inline">
+
+                    			<div class="mws-form-row">
+                    				<label>username</label>
+                    				<div class="mws-form-item small">
+                    					<input type="text" class="mws-textinput" name="username" value="{$data['username']}" required>
+                    				</div>
+                    			</div>
+                    			<div class="mws-form-row">
+                    				<label>age</label>
+                    				<div class="mws-form-item small">
+                    					<input type="text" class="mws-textinput" name="age" value="{$data['age']}"  required>
+                    				</div>
+                    			</div>
+                    			<div class="mws-form-row">
+                    				<label>email</label>
+                    				<div class="mws-form-item small">
+                    					<input type="text" class="mws-textinput" name="email" value="{$data['email']}"  required>
+                    				</div>
+                    			</div>
+                    			<div class="mws-form-row">
+                    				<label>phone</label>
+                    				<div class="mws-form-item small">
+                    					<input type="text" class="mws-textinput" name="phone" value="{$data['phone']}"  required>
+                    				</div>
+                    			</div>
+								<div class="mws-form-row">
+                    				<label>sex</label>
+                    				<div class="mws-form-item clearfix">
+                    					<ul class="mws-form-list inline">
+                    						<li><input type="radio" name="sex" value="man" {$data['sex'] == 'man' ? 'checked' : ''}> <label>man</label></li>
+                    						<li><input type="radio" name="sex" value="woman" {$data['sex'] == 'woman' ? 'checked' : ''}> <label>woman</label></li>
+                    						<li><input type="radio" name="sex" value="baomi" {$data['sex'] == 'baomi' ? 'checked' : ''}> <label>secrecy</label></li>
+                    						</ul>
+                    				</div>
+                    			</div>
+
+                    			<div class="mws-form-row">
+                    				<label>image</label>
+                    				<div class="mws-form-item small">
+                    					<input type="file" name="image"><img src="/uploads/{$data['image']}" style="width:12%;height: 12%"><font color="gray">{$data['image'] == '' ? '该用户未上传头像' :''}</font>
+                    				</div>
+                    			</div>
+
+                    			<div class="mws-form-row">
+                    				<label>Textarea</label>
+                    				<div class="mws-form-item large">
+                    					<textarea rows="100%" cols="100%" name="desc">{$data['desc']}</textarea>
+                    				</div>
+                    			</div>
+                    			
+                    			
+                    			
+                    		</div>
+                    		<div class="mws-button-row" style="float: left;">
+                    			<input type="submit" value="Submit" class="mws-button green" >
+                    			<a class="mws-button blue" onclick="history.back();">取消</a>
+                    			
+                    		</div>
+                    	</form>
+                    </div>    	
+                </div>
+                <script type="text/javascript">
+                </script>

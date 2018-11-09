@@ -17,6 +17,7 @@ class Login extends Controller
     }
 	public function login(Request $request)
     {
+       
     	$data = $request->post();
     	$data['password'] = md5($data['password']);
     	$login = Db::table('user')->where('username',$data['username'])->where('password',$data['password'])
@@ -24,15 +25,17 @@ class Login extends Controller
     	if($login) {
     		session::set('username',$login['username']);
     		session::set('id',$login['id']);
+            session::set('image',$login['image']);
     		// dd(session::get('username'));
-    		return view('index/user_info',['name'=>session::get('username')]);
+    		return view('public/footer');
     	}else {
     		return $this->error('登录失败','index',3);
     	}
     }
     public function logout()
     {
-    	session::set('username',null);
+        //清除session 
+        session::clear(); 
     	return $this->error('退出成功,请重新登录','index');
     }
 }

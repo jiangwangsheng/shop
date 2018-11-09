@@ -210,6 +210,11 @@ return [
         'type'           => '',
         // 是否自动开启 SESSION
         'auto_start'     => true,
+
+        
+    ],
+    'SESSION_OPTIONS' => [
+         'expire'    =>  36   //有效时间
     ],
 
     // +----------------------------------------------------------------------
@@ -238,4 +243,11 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+    //400页面设置
+    'http_exception_template'    =>  [
+        // 定义404错误的重定向页面地址
+        404 =>  APP_PATH . 'index/view/exception_html/404.html',
+        500 =>  APP_PATH . 'index/view/exception_html500.html',
+    ],
+
 ];

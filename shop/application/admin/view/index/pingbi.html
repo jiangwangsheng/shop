@@ -16,7 +16,7 @@
                
                 <div class="mws-panel grid_8 mws-collapsible">
                     <div class="mws-panel-header">
-                        <span class="mws-i-24 i-table-1">个人信息</span>
+                        <span class="mws-i-24 i-table-1">被屏蔽用户</span>
                     <div class="mws-collapse-button mws-inset"><span></span></div></div>
                     <div class="mws-panel-body">
                         <table class="mws-table">
@@ -30,7 +30,7 @@
                                     <th>年龄</th>
                                     <th>性别</th>
                                     <th>头像</th>
-                                    <th>管理功能</th>
+                                    <th>功能</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,19 +47,17 @@
 									{else} 保密
 									{/if}
                                    </td>
-                                   <td style="width: 15%;height: 12%;"><img src="/uploads/{$v['image'] == '' ? 'zw.jpg' : $v['image']}" style="width: 80%;"></td>
+                                   <td style="width:12%;height: 12%"><img src="/uploads/{$v['image'] == '' ? 'zw.jpg' : $v['image']}"></td>
                                    <td>
-                                    {if $Think.session.id == $v['id']}
-                                    <font style="color: gray">管理员不能被屏蔽</font>
-                                    {else}
-                                    <a href="/admin/user/delete/id/{$v['id']}" style="text-decoration: none;" onclick="return confirm('确定要禁止该用户在本网站登录吗？')">delete</a>---<a href="/admin/user/userinfos/id/{$v['id']}" style="color: orange;text-decoration: none;" onclick="return confirm('确认要修改客户的个人资料吗？')">个人资料</a></td>
-                                    {/if}
+                                    <a href="/admin/user/quxiao/id/{$v['id']}" style="text-decoration: none;" onclick="return confirm('恢复用户登录功能吗？')">取消屏蔽
+                                    </a>
+                                    </td>
                                 </tr>
                                {/foreach}
                                
                             </tbody>
                         </table>
-                        {$page}
+                        {$data->render()}
                     </div>
                 </div>
             </div>

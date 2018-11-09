@@ -1,0 +1,168 @@
+{include file="public/footer"}
+<div id="mws-container" class="clearfix">
+        <div class="container">
+
+
+        	<div class="mws-panel grid_8">
+                	<div class="mws-panel-header">
+                    	<span class="mws-i-24 i-list">添加商品</span>
+                    </div>
+                    <div class="mws-panel-body">
+                    	<form class="mws-form" action="/admin/goods/save" method="post" enctype="multipart/form-data">
+                    		<div class="mws-form-inline">
+
+                    			<div class="mws-form-row">
+                    				<label>商品名称</label>
+                    				<div class="mws-form-item small">
+                    					<input type="text" class="mws-textinput s" name="gname" required><font style="color:red">√(为必填)</font>
+                    				</div>
+                    			</div>
+
+                    			<div class="mws-form-row">
+                                    <label>型号</label>
+                                    <div class="mws-form-item small">
+                                        <input type="text" class="mws-textinput s" name="model" required><font style="color:red">√</font>
+                                    </div>
+                                </div>
+                                <div class="mws-form-row">
+                                    <label>价格</label>
+                                    <div class="mws-form-item small">
+                                        <input type="text" class="mws-textinput s" name="price" placeholder="默认$" required>
+                                        <font style="color:red">√</font>
+                                    </div>
+                                </div>
+                               <div class="mws-form-row">
+                                    <label>商品正图</label>
+                                    <div class="mws-form-item small">
+                                        <input type="file"  name="image" required><font style="color:red">√</font>
+                                    </div>
+                                </div>
+                    		  <div class="mws-form-row">
+                                    <label>商品配图【建议为3个】</label>
+                                    <div class="mws-form-item small">
+                                        <input type="file"  name="images[]" multiple="" required><font style="color:red">√</font>
+                                    </div>
+                                </div>
+
+                            <div class="mws-form-row">
+                                    <label>所属系列</label>
+                                    <div class="mws-form-item small">
+                                        <select name="sid">
+                                            {foreach  $series as $k=>$v}
+                                            <option value="{$v['id']}">{$v['cname']}</option>
+                                            {/foreach}
+                                         </select>
+                                    </div>
+                                </div>
+                                    
+                              <div class="mws-form-row">
+                                    <label>所属分类</label>
+                                    <div class="mws-form-item small">
+                                        <select name="cid">
+                                            {foreach  $cases as $k=>$v}
+                                            <option value="{$v['id']}">{$v['case']}</option>
+                                            {/foreach}
+                                         </select>
+                                    </div>
+                                </div>
+
+                                 <div class="mws-form-row">
+                                    <label>男表or女表</label>
+                                    <div class="mws-form-item clearfix">
+                                        <ul class="mws-form-list inline">
+                                            {foreach  $case as $k=>$v}
+                                            <li><input type="radio" name="nid" value="{$v['id']}"> <label>{$v['case']}</label></li>
+                                            {/foreach}
+                                          </ul>
+                                    </div>
+                                </div>
+                                
+                                 <div class="mws-form-row">
+                                    <label>保修备注</label>
+                                    <div class="mws-form-item small">
+                                        <textarea rows="50%" cols="50%" name="baoxiu"></textarea><font style="color:red">√</font>
+                                    </div>
+                                </div>
+
+                                <div class="mws-form-row">
+                                    <label>表耳间距</label>
+                                    <div class="mws-form-item small">
+                                        <input type="text" class="mws-textinput s" name="bejj" placeholder="默认毫米">
+                                    </div>
+                                </div>
+                                
+                                <div class="mws-form-row">
+                                    <label>表链</label>
+                                    <div class="mws-form-item small">
+                                        <input type="text" class="mws-textinput s" name="bl">
+                                    </div>
+                                </div>
+                                    
+                                <div class="mws-form-row">
+                                    <label>表壳</label>
+                                    <div class="mws-form-item small">
+                                        <input type="text" class="mws-textinput s" name="bk">
+                                    </div>
+                                </div>
+                                    
+                                <div class="mws-form-row">
+                                    <label>表盘颜色</label>
+                                    <div class="mws-form-item small">
+                                        <input type="text" class="mws-textinput s" name="bpys">
+                                    </div>
+                                </div>
+                                    
+                                <div class="mws-form-row">
+                                    <label>表壳直径</label>
+                                    <div class="mws-form-item small">
+                                        <input type="text" class="mws-textinput s" name="bkzj">
+                                    </div>
+                                </div>
+                                    
+                                <div class="mws-form-row">
+                                    <label>玻璃</label>
+                                    <div class="mws-form-item small">
+                                        <input type="text" class="mws-textinput s" name="boli">
+                                    </div>
+                                </div>
+                                    
+                                <div class="mws-form-row">
+                                    <label>防水性能</label>
+                                    <div class="mws-form-item small">
+                                        <input type="text" class="mws-textinput s" name="fsxn">
+                                    </div>
+                                </div>
+                                    
+                                <div class="mws-form-row">
+                                    <label>形状</label>
+                                    <div class="mws-form-item small">
+                                        <input type="text" class="mws-textinput s" name="xz">
+                                    </div>
+                                </div>
+                                    
+                                <div class="mws-form-row">
+                                    <label>表带</label>
+                                    <div class="mws-form-item small">
+                                        <input type="text" class="mws-textinput s" name="bd">
+                                    </div>
+                                </div>
+
+                                <div class="mws-form-row">
+                                    <label>机芯</label>
+                                    <div class="mws-form-item small">
+                                        <input type="text" class="mws-textinput s" name="jx">
+                                    </div>
+                                </div>
+
+                    		  </div>
+                    		<div class=""  style="text-align:center">
+                    			<input type="submit" value="Submit" class="mws-button green">
+                    			<a class="mws-button blue" onclick="history.back();">取消</a>
+                    			
+                    		</div>
+                    	</form>
+                    </div>    	
+                </div>
+                <script type="text/javascript">
+				
+                </script>

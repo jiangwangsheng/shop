@@ -17,6 +17,6 @@ define('APP_PATH', __DIR__ . '/../application/');
 require __DIR__ . '/../thinkphp/start.php';
 function dd( $str ) {
 	echo '<pre>';
-	var_dump($str);
+	dump($str);
 	exit();
 }

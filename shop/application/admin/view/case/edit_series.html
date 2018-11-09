@@ -1,0 +1,53 @@
+{include file="public/footer"}
+<div id="mws-container" class="clearfix">
+        <div class="container">
+
+
+        	<div class="mws-panel grid_8">
+                	<div class="mws-panel-header">
+                    	<span class="mws-i-24 i-list">修改产品系列</span>
+                    </div>
+                    <div class="mws-panel-body">
+                    	<form class="mws-form" action="/admin/cases/update_series/id/{$data['id']}" method="post">
+                    		<div class="mws-form-inline">
+
+                    			<div class="mws-form-row">
+                    				<label>系列(中文)</label>
+                    				<div class="mws-form-item small">
+                    					<input type="text" class="mws-textinput s" name="cname" value="{$data['cname']}" required>
+                    				</div>
+                    			</div>
+
+                    			<div class="mws-form-row">
+                                    <label>系列(英文)</label>
+                                    <div class="mws-form-item small">
+                                        <input type="text" class="mws-textinput s" name="yname" value="{$data['yname']}" required>
+                                    </div>
+                                </div>
+
+                                <div class="mws-form-row">
+                                    <label>产品描述</label>
+                                    <div class="mws-form-item small">
+                                       <textarea rows="50%" cols="60%" name="desc"  required>{$data['desc']}</textarea>
+                                    </div>
+                                </div>
+
+                             <div class="mws-form-row">
+                                    <label title="过多请用英文逗号分开">产品特色</label>
+                                    <div class="mws-form-item small">
+                                        <textarea rows="50%" cols="60%" name="tese">{$data['tese']}</textarea><font style="color: gray;font-size: 100%">注：过多请用英文逗号分隔
+                                    </div>
+                                </div>
+                    		
+                    		</div>
+                    		<div class=""  style="text-align:center">
+                    			<input type="submit" value="Submit" class="mws-button green">
+                    			<a class="mws-button blue" onclick="history.back();">取消</a>
+                    			
+                    		</div>
+                    	</form>
+                    </div>    	
+                </div>
+                <script type="text/javascript">
+				
+                </script>

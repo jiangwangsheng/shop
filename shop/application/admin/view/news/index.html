@@ -1,0 +1,59 @@
+{include file="public/footer"}
+
+
+
+
+
+
+
+<div id="mws-container" class="clearfix">
+        
+            <!-- Main Container -->
+            <div class="container">
+            
+              
+                
+               
+                <div class="mws-panel grid_8 mws-collapsible">
+                    <div class="mws-panel-header">
+                        <span class="mws-i-24 i-table-1">{$name}</span>
+                    <div class="mws-collapse-button mws-inset"><span></span></div></div>
+                    <div class="mws-panel-body">
+                        <table class="mws-table">
+                            <thead>
+                                <tr>
+                                    <th>编号</th>
+                                    <th>标题</th>
+                                    <th>封面描述</th>
+                                    <th>封面图片</th>
+                                    <th style="width: 12%; text-align:center;">作者</th>
+                                    <th style="width: 12%; text-align:center;">浏览量</th>
+                                    <th style="width: 12%; text-align:center;">是否推送</th>
+                                    <th style="width: 12%; text-align:center;">管理功能</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            	{foreach $data as $k=>$v}
+                                <tr>
+                                    <td>{$v['id']}</td>
+                                    <td title="{$v['title']}" style="width: 10rem;height: 3rem">{$v['title']}</td>
+                                    <td title="{$v['miaosu']}" style="width: 10rem;height: 3rem">{$v['miaosu']|substr=0,55}</td>
+                                    <td style="width: 10rem;height: 3rem"><img src="/uploads/{$v->image}" style="width: 80%;height: 100%"></td>
+                                    <td>{$v['auth']}</td>
+                                   <td>{$v['lll']}</td>
+                                   <td style="text-align: center; font-size: 1rem">{$v['push'] == '1' ? '<font color="red"><b>Y</b></font>' : 'N'}</td>
+                                   <td><a href="/admin/news/edit/id/{$v['id']}" style="text-decoration: none;color: black">详细</a>--<a class="mws-ic-16 ic-cross n" href="/admin/news/delete/id/{$v['id']}" onclick="return confirm('确认删除吗？')" style="text-decoration: none;color: black">&nbsp;&nbsp;&nbsp;&nbsp;delete</a></td>
+                                </tr>
+                               {/foreach}
+                               
+                            </tbody>
+                        </table>
+                        {$data->render()}
+                    </div>
+                </div>
+            </div>
+            <!-- End Main Container -->
+            
+            <!-- Footer -->
+           
+            <!-- End Footer -->

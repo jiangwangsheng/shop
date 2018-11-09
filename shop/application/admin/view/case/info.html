@@ -1,0 +1,74 @@
+{include file="public/footer"}
+
+
+
+
+
+
+
+<div id="mws-container" class="clearfix">
+        
+            <!-- Main Container -->
+            <div class="container">
+            
+              
+                
+               
+                <div class="mws-panel grid_8 mws-collapsible">
+                    <div class="mws-panel-header">
+                        <span class="mws-i-24 i-table-1">所有分类</span>
+                    <div class="mws-collapse-button mws-inset"><span></span></div></div>
+                    <div class="mws-panel-body">
+                        <table class="mws-table">
+                            <thead>
+                                <tr>
+                                    <th>编号</th>
+                                    <th>类名</th>
+                                    <th>备注</th>
+                                    <th>管理</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            	<tr class="gradeX even">
+                                    {foreach $data as $k=>$v}
+                                    <td>{$v['id']}</td>
+                                    <td>{$v['case']}</td>
+                                    <td title="{$v['cases']}">{$v['cases'] | substr=0,50}</td>
+                                    <td><a href="/admin/cases/delete/id/{$v['id']}" class="mws-ic-16 ic-cross n" style="  text-decoration:none;color:black" onclick="return confirm('确认删除吗,一旦删除无法恢复')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete</a>--<a href="/admin/cases/edit/id/{$v['id']}" style="text-decoration: none;color:black">update</a><input type="hidden" name="" value="{$v['id']}"></td>
+                                </tr>
+                               {/foreach}
+                               
+                            </tbody>
+                        </table>
+                        {$page}
+                    </div>
+                </div>
+            </div>
+            <!-- End Main Container -->
+            
+            <!-- Footer -->
+           
+            <!-- End Footer -->
+          <!--   <script type="text/javascript">
+                    $('.n').click(function(){
+                        if(confirm('确认删除吗?')){
+                                $.ajax({
+                                    url:'',
+                                    type:'get',
+                                    async:false,
+                                    data:{'id':$(this).next().val()},
+                                    success:function(msg){
+                                        if(msg == '1') {
+                                            alert('删除成功!')
+                                            window.location.reload();
+                                        }else{
+                                            alert('当前分类不允许被删除');
+                                            return false;
+                                        }
+                                    }
+                                })
+                               
+                                }
+                            })
+                    
+            </script> -->

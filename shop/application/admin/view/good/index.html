@@ -1,0 +1,61 @@
+{include file="public/footer"}
+
+
+
+
+
+
+
+<div id="mws-container" class="clearfix">
+        
+            <!-- Main Container -->
+            <div class="container">
+            
+              
+                
+               
+                <div class="mws-panel grid_8 mws-collapsible">
+                    <div class="mws-panel-header">
+                        <span class="mws-i-24 i-table-1">商品信息</span>
+                    <div class="mws-collapse-button mws-inset"><span></span></div></div>
+                    <div class="mws-panel-body">
+                        <table class="mws-table" border="1" width="300px" height="100px" align="center" style="text-align: center;">
+                            <thead>
+                                <tr align="center">
+                                    <th style="text-align: center;">编号</th>
+                                    <th>商品名</th>
+                                    <th style="width:15%; height:20%">商品缩略图</th>
+                                    <th>型号</th>
+                                    <th>价格</th>
+                                    <th>所属系列</th>
+                                    <th>表类</th>
+                                    <th>男表or女表</th>
+                                    <th>编辑</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            	{foreach $data as $k=>$v}
+                                <tr>
+                                    <td style="text-align: center;">{$v['id']}</td>
+                                    <td>{$v['gname']}</td>
+                                    <td style="width: 15%;height: 12%"><img src="/uploads/{$v['image']}" style="width: 90px;height: 50px;"></td>
+                                    <td>{$v['model']}</td>
+                                   <td>{$v['price']}$</td>
+                                   <td>{$v['sid']}</td>
+                                   <td>{$v['cid']}</td>
+                                   <td>{$v['nid']}</td>
+                                   <td><a href="/admin/goods/edit/id/{$v['id']}" style="text-decoration: none;color: black;">详细</a>----<a href="/admin/goods/delete/id/{$v['id']}" onclick="return confirm('确认删除吗？一经删除无法恢复')" style="text-decoration: none;color: black;" class="mws-ic-16 ic-cross n">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete</a></td>
+                                </tr>
+                               {/foreach}
+                               
+                            </tbody>
+                        </table>
+                        {$data->render()}
+                    </div>
+                </div>
+            </div>
+            <!-- End Main Container -->
+            
+            <!-- Footer -->
+           
+            <!-- End Footer -->
